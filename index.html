@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <title>Imperiator_</title>
+
+
+    <link id="theme" rel="stylesheet" type="text/css" href="./src/css/style.css">
+    <link id="theme2" rel="alternate stylesheet" type="text/css" href="./src/css/dark.css">
+    <link rel="shortcut icon" href="/src/img/logo.png">
+
+    <meta name="description" content="Découvrez mon site personnel qui ressence tous mes projets ainsi que mes compétences et mes services.">
+    <meta name="keywords" content="Imperiator_, Imperiator, ``discord``, informations, developpement, informatique">
+    <meta name="og:image" content="https://imperiator.tk/src/img/logo.png">
+</head>
+<body>
+    <header>
+        <a href="#" class="portfolio">Portfolio</a>
+        <div class="switchresp" style="display: none;">
+            <label class="switchdark" id="switchdark">
+                <input id="switch1" type="checkbox" onclick="toggleTheme(this)">
+                <span class="slider round"></span>
+              </label>
+        </div>
+        <div class="toggle" onclick="toggleMenu();">
+            <ul class="menu">
+                <label class="switch" id="switchdark">
+                    <input id="switch1" type="checkbox" onclick="toggleTheme(this)">
+                    <span class="slider round">
+                        
+                    </span>
+                  </label>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about-me">About</a></li>
+                <li><a href="#projects">My projets</a></li>
+               
+            </ul>
+
+        </div>
+    </header>
+    <section class="banner" id="home">
+       
+        <div class="textBox">
+            <h2><span>Imperiator_</span></h2>
+            <h3>Développeur JavaScript et Web.</h3>
+            <a href="#about-me" class="btndark">Me découvrir</a>
+        </div>
+        <div class="bouton-discover">
+            <a href="#about-me" class="btn">Me découvrir</a>
+        </div>
+        <img src="./src/img/café.png" class="cafeimg"style="display: none;">
+     </section>
+     <section class="about">
+        <div class="abouttext">
+            <h2 class="abouttxt" id="about-me">A Propos de moi</h2>
+            <div class="aboutline">
+                <hr>
+            </div>
+        </div>
+        <div class="aboutbody">
+            
+                <img src="/src/img/aboutimgnobg.png" class="aboutimg" width="294" height="430" >
+            
+            <div class="aboutsectxt">
+                <div class="titleabout">
+                    <h2 class="title">
+                        Une erreur ? Mais non pas de problèmes ...
+                    </h2>
+                </div>
+                <div class="aboutdesc">
+                    <p>   Tout va bien ! Je m'appelle Imperiator_ alias Clément
+                        Etant encore tout jeune, je suis novice dans le domaine de l'informatique, de 
+                        par sa grandeur et sa diversité, mais j'ai quelques bases dans le développement 
+                        en JavaScript et en Web.
+                        <br>
+                        <br>
+                           Actuellement en seconde générale, je m'oriente vers le domaine de
+                         l'informatique, j'en suis passionné et j'aimerais en faire mon travail.
+                        <br>
+                        <br>
+                           Cela fait bientôt 2 ans que j'ai appris à coder et je n'ai jamais eu de 
+                        découragement et j'ai envie de continuer !</p>    
+                </div>
+            </div>
+        </div>
+     </section>
+     <section class="projects" id="projects">
+        <div class="projectstext">
+            <h2 class="projectstxt">Mes Projets</h2>
+            <div class="projectsline">
+                <hr id="projects">
+            </div>
+        </div>
+        <div class="content">
+            <div class="projectsBox">
+                <a href="https://iootek.fr">
+                    <img src="/src/img/Iootek_logo.png" alt="icone iootek">
+                    <h2>Groupe Iootek</h2>
+                    <p> Iootek est un collectif de développeurs en toutes langues de programmation. <strong> Rassemblés </strong> pour accomplir de gros projet et pouvoir se façonné de nouvelles compétences. Créer dans le but de promouvoir ses membres et de leurs offrir une visibilité plus grandes. </p>
+                </a>
+            </div>
+            <div class="projectsBox">
+                
+                <img src="https://img.imperiator.tk/chrome_8TgoJ.png" alt="icone iootek">
+                    <h2>Site Web<br> - <br></h2>
+                    <h3>Imperiator.tk</h3>
+                    <p>Mon site personnel est ma première vraie création, qui ressence mes principaux skills en développement web. Commencé d'une page web simple, on ne sait pas ou cela va arriver !</p>
+                
+            </div>
+        </div>
+     </section>
+     <div class="copyright" id="copyrightsection">
+        <a href="//www.dmca.com/Protection/Status.aspx?ID=00a8052e-1f2b-490e-89f6-d5527fb3ab0d" title="DMCA.com Protection Status" class="dmca-badge"> <img src ="https://images.dmca.com/Badges/dmca-badge-w150-5x1-02.png?ID=00a8052e-1f2b-490e-89f6-d5527fb3ab0d"  alt="DMCA.com Protection Status" /></a>  <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
+        <p>Copyright 2021 - Imperiator -Tous droits reservés.</p>
+    </div>
+    
+    
+    
+    <script>
+        window.addEventListener('scroll', function () {
+            let header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+        function toggleMenu() {
+            let menuToggle = document.querySelector('.toggle');
+            let menu = document.querySelector('.menu');
+            menuToggle.classList.toggle('active');
+            menu.classList.toggle('active');
+        };
+    //     document.getElementById('switch1').addEventListener("change", function(){
+    //     if (this.checked){window.location = './dark.html';};
+    // });
+
+            var sheets = "";
+             
+        function toggleTheme(checkbox){   
+            sheets = document .getElementsByTagName('link');
+            if(checkbox.checked){
+                    sheets[0].href = "./src/css/dark.css"
+                }
+                else{
+                    sheets[0].href = "./src/css/style.css"
+                }
+            }
+
+    </script>
+</body>
+</html>

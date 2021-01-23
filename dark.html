@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <title>Imperiator_</title>
+
+    <link rel="stylesheet" href="/src/css/dark.css">
+    <link rel="shortcut icon" href="/src/img/logo.png">
+
+    <meta name="description" content="Découvrez mon site personnel qui ressence tous mes projets ainsi que me compétences et mes services.">
+    <meta name="keywords" content="Imperiator_, Imperiator, ``discord``, informations, developpement, informatique">
+</head>
+<body>
+    <header>
+        <a href="#" class="portfolio">Portfolio</a>
+        <div class="toggle" onclick="toggleMenu();">
+            <ul class="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about-me">About</a></li>
+                <li><a href="#projects">My projets</a></li>
+            </ul>
+        </div>
+    </header>
+    <section class="banner" id="home">
+        <div class="textBox">
+            <h2><span>Imperiator_</span></h2>
+            <h3>Développeur JavaScript et Web.</h3>
+            <div class="bouton-discover">
+                <a href="#about-me" class="btn">About...</a>
+            </div>   
+        </div>
+        <img class="café" src="./src/img/café.png">
+     </section>
+
+
+    <script>
+        window.addEventListener('scroll', function () {
+            let header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+        function toggleMenu() {
+            let menuToggle = document.querySelector('.toggle');
+            let menu = document.querySelector('.menu');
+            menuToggle.classList.toggle('active');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
