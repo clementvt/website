@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
-*
+*, ::before, ::after
 {
     margin: 0;
     padding: 0;
@@ -9,10 +9,12 @@
     font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
     color: #e6e6e6;
+     
 }
 body {
     background-size: cover;
     background-color: #000000ec;
+    
 }
 header
 {
@@ -264,10 +266,6 @@ h3 {
     background: #1b1b1b;
 }
 
-#projects {
-    margin-bottom: 50px;
-}
-
 
 .projects .content
 {
@@ -333,6 +331,7 @@ margin-bottom: 20px;
     display: flex;
     top:0;
     right: 0;
+    
   }
   
   .slider {
@@ -385,7 +384,7 @@ margin-bottom: 20px;
   .slider.round:before {
     border-radius: 50%;
     background: url(../img/darkimg.png);
-    margin-bottom: -1.5px;
+    /* margin-bottom: -1.5px; */
     border: 0.5px solid rgba(0, 0, 0, 0.301);
     background-position: cover;
     background-size: 25px;
@@ -397,6 +396,8 @@ margin-bottom: 20px;
     align-items: center;
     justify-content: center;
     padding: 15px;
+    
+
 }
 
 .dmca-badge {
@@ -404,6 +405,101 @@ margin-bottom: 20px;
     height: 30px;
     margin-right: 10px;
 }
+
+.no-js {
+    display: none;
+}
+
+.loader {
+    position: absolute;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background: rgb(26, 26, 26);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.loading {
+    color: #555555;
+    font-size: 75px;
+    letter-spacing: 20px;
+    animation: load 1.4s linear infinite;
+}
+@keyframes load {
+    0% {
+        color: rgb(255, 0, 0);
+        text-shadow: 0 0 7px rgb(255, 0, 0);
+    }
+    90% {
+        color: #555555;
+        text-shadow: none;
+    }
+    100% {
+        color: rgb(255, 0, 0);
+        text-shadow: 0 0 7 rgb(255, 0, 0);
+    }
+}
+
+.loading:nth-child(1){
+    animation-delay: 0.1s;
+}
+.loading:nth-child(2){
+    animation-delay: 0.2s;
+}
+.loading:nth-child(3){
+    animation-delay: 0.3s;
+}
+.loading:nth-child(4){
+    animation-delay: 0.4s;
+}
+.loading:nth-child(5){
+    animation-delay: 0.5s;
+}
+.loading:nth-child(6){
+    animation-delay: 0.6s;
+}
+.loading:nth-child(7){
+    animation-delay: 0.7s;
+}
+
+.fondu-out {
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+    z-index: -10;
+}
+.progress-container {
+    position: fixed;
+    z-index: 999;
+    margin-top: 115px;
+    width: 100%;
+    height: 4px;
+    background: rgb(112, 112, 112);
+    transition: 0.5s;
+  }
+  .progress-container.sticky {
+    position: fixed;
+    z-index: 999;
+    margin-top: 75px;
+    width: 100%;
+    height: 4px;
+    background: rgb(112, 112, 112);
+  }
+
+  .progress-container.sticky::before {
+    content: "";
+    transition: 00.5s
+  }
+  
+
+  .progress-bar {
+
+    height: 4px;
+    background: #26a6e6;
+    width: 0%;
+  }
 
 @media (max-width: 991px)
 {
@@ -413,6 +509,44 @@ margin-bottom: 20px;
         z-index: 1000;
         
     }
+    .progress-container {
+        position: fixed;
+        z-index: 999;
+        margin-top: 61px;
+        width: 100%;
+        height: 4px;
+        background: #ccc;
+        transition: 0.5s;
+      }
+    .progress-container.sticky {
+        position: fixed;
+        z-index: 999;
+        margin-top: 60px;
+        width: 100%;
+        height: 4px;
+        background: #ccc;
+      }
+
+      .progress-container.sticky::before {
+        content: "";
+        transition: 00.5s
+      }
+    .projects .content .projectsBox {
+        max-width: 270px;    
+    }
+
+    .projects .content .projectsBox h2, h3{
+        font-size: 25px;
+    }
+
+    .projects .content img {
+        border-radius: 25px;
+        width: 230px;
+        height: auto;
+        margin: 0;
+        z-index: 2000;
+    }
+
     header ul li a
     {
         font-size: 24px;
@@ -624,6 +758,28 @@ margin-bottom: 20px;
     {
         padding: 100px 20px;
     }
+    .progress-container {
+        position: fixed;
+        z-index: 999;
+        margin-top: 81px;
+        width: 100%;
+        height: 4px;
+        background: #ccc;
+        transition: 0.5s;
+      }
+    .progress-container.sticky {
+        position: fixed;
+        z-index: 999;
+        margin-top: 81px;
+        width: 100%;
+        height: 4px;
+        background: #ccc;
+      }
+
+      .progress-container.sticky::before {
+        content: "";
+        transition: 00.5s
+      }
 }
 
 @media (prefers-reduced-motion: reduce) {
