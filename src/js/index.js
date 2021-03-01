@@ -29,55 +29,54 @@ window.onload = function(){
     if(getLocaltime() > "17:00:00"){
         console.log("Switched on dark mode because of night.");
         sheets[0].href = "./src/css/dark.css";
+        switch2toggle[0].checked = true;
         switch2toggle[1].checked = true;
-    }
+        new Notify({
+            title: 'Information',
+            text: 'Vous avez été redirigé vers la version noire du site.',
+            autoclose: true,
+            autotimeout: 4000,
+            gap: 10,
+            position: 'right bottom'
+        });
+    };
 
     if(getLocaltime() > "7:00:00"){
-        sheets[0].href = "./src/css/style.css";
+        sheets[0].href = "./src/css/style.css"
+        switch2toggle[0].checked = false
         switch2toggle[1].checked = false;
-    }
+    };
 
-    // gsap.registerPlugin(ScrollTrigger);
-    // gsap.config({
-    //     autoSleep: 60,
-    //     force3D: false,
-    //     nullTargetWarn: false,
-    //     units: {left: "%", top: "%", rotation: "rad"}
-    // });
-    // var img = document.querySelector(".aboutdesc");
-
-//     gsap.to(img, {
-//         scrollTrigger: {
-//             trigger: img, 
-//             toggleActions: "restart pause resume pause",
-//             start:"-800px",
-//         },
-//         z: "400",   
-//         duration: 5,
-//     });
-
-// gsap.registerPlugin(ScrollTrigger);
-// var tl = gsap.timeline({
-//   scrollTrigger: {
-//     trigger: ".splittext",
-//     toggleActions: "restart none none none"
-//   }
-// }),
-//   mySplitText = new SplitText(img, {
-//     type: "words, lines, chars"
-//   });
-
-// tl.from(mySplitText.chars, { opacity: 0, y: 50, ease: "power2", stagger: 0.05 });
-
+    var colorSchemeQueryList = window.matchMedia('(prefers-color-scheme: dark)');
+      var setColorScheme = e => {
+        if (e.matches || sheets[0].href != "./src/css/dark.css") {
+          sheets[0].href = "./src/css/dark.css";
+          console.log('Dark mode by user agent dark');
+          switch2toggle[0].checked = true;
+          switch2toggle[1].checked = true;
+          new Notify({
+            title: 'Information',
+            text: 'Vous avez été redirigé vers la version noire du site.',
+            autoclose: true,
+            autotimeout: 4000,
+            gap: 10,
+            position: 'right bottom'
+        });
+        };
+      };
+      setColorScheme(colorSchemeQueryList);
+      colorSchemeQueryList.addListener(setColorScheme);
 }
 
     var sheets = "";
     sheets = document.getElementsByTagName('link');
+
     
 function toggleTheme(checkbox){   
     
     if(checkbox.checked){
             sheets[0].href = "./src/css/dark.css"
+
         }
         else{
             sheets[0].href = "./src/css/style.css"
@@ -89,15 +88,17 @@ function toggleTheme(checkbox){
       }
       console.log(getLocaltime());
 
-      let colorSchemeQueryList = window.matchMedia('(prefers-color-scheme: dark)');
-      const setColorScheme = e => {
-        if (e.matches) {
-          sheets[0].href = "./src/css/dark.css";
-          console.log('Dark mode');
-        }
-      }
-      setColorScheme(colorSchemeQueryList);
-      colorSchemeQueryList.addListener(setColorScheme);
+        //   var notif = new Notify({
+        //     title: 'Information',
+        //     text: 'Vous avez été redirigé vers la version noire du site.',
+        //     autoclose: true,
+        //     autotimeout: 4000,
+        //     gap: 10,
+        //     position: 'right bottom'
+        // });
+
+     
+
     
 
 
