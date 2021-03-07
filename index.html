@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
 
-    <title>Imperiator_</title>
+    <title>Imperiator_ | Portfolio</title>
 
 
     <link id="theme" rel="stylesheet" type="text/css" href="./src/css/style.css">
@@ -17,21 +18,53 @@
     <script src="https://kit.fontawesome.com/30d34abda8.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./src/notify/dist/simple-notify.min.css" />
     <script src="./src//notify/dist/simple-notify.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-database.js"></script>
     
 </head>
 <body>
     
     <script src="./src/js/index.js"></script>
+    <script type="application/javascript">
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+  apiKey: "AIzaSyAZZmD70BdbxJKtb5-ILqWXt8LdJtZNeEY",
+  authDomain: "view-counter-3588f.firebaseapp.com",
+  databaseURL: "https://view-counter-3588f-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "view-counter-3588f",
+  storageBucket: "view-counter-3588f.appspot.com",
+  messagingSenderId: "786137422715",
+  appId: "1:786137422715:web:e8ad3037555ada21b27bde"
+};
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
 
-    <div class="loader">
-        <div class="loading">L</div>
-        <div class="loading">O</div>
-        <div class="loading">A</div>
-        <div class="loading">D</div>
-        <div class="loading">I</div>
-        <div class="loading">N</div>
-        <div class="loading">G</div>
-    </div>
+        function get_viewers_ip(json){
+            viewers_ip =json.ip;
+            count_view(viewers_ip);
+        }
+
+        function count_view(viewers_ip){
+        var views;
+        var ipToString = viewers_ip.toString();
+
+        for(var i, i = 0; i < ipToString.length; i++){
+            ipToString = ipToString.replace(".", "-");
+        }
+
+        firebase.database().ref().child("page_views/" + ipToString).set({
+            viewers_ip: viewers_ip
+        });
+        firebase.database().ref().child("page_views").on("value", function(snapshot){
+            views = snapshot.numChildren();
+            document.getElementById("views_count").innerHTML = "<i class='fa fa-eye'></i>" + views;
+            console.log(views);
+        });
+        }
+      </script>
+      <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=get_viewers_ip"></script>
+
+
     <header>
         <a href="#" class="portfolio">Portfolio</a>
         <div class="switchresp" style="display: none;">
@@ -51,6 +84,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about-me">About</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a id="views_count"></a></li>
             </ul>
         </div>
     </header>
@@ -88,8 +122,8 @@
                     </h2>
                 </div>
                 <div class="aboutdesc">
-                    <p>   Tout va bien ! Je m'appelle Imperiator_ alias Clément
-                        Etant encore tout jeune, je suis novice dans le domaine de l'informatique, de 
+                    <p>   Tout va bien ! Je m'appelle Imperiator_ alias Clément, </p>
+                     <p>Etant encore tout jeune, je suis novice dans le domaine de l'informatique, de 
                         par sa grandeur et sa diversité, mais j'ai quelques bases dans le développement 
                         en JavaScript et en Web.
                         <br>
@@ -99,7 +133,7 @@
                         <br>
                         <br>
                            Cela fait bientôt 2 ans que j'ai appris à coder et je n'ai jamais eu de 
-                        découragement et j'ai envie de continuer !</p>    
+                        découragement et j'ai envie de continuer !</p>     
                 </div>
             </div>
         </div>

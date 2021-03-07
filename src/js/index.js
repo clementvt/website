@@ -6,9 +6,7 @@ window.addEventListener('scroll', function () {
 });
 window.onscroll = function() {progressBar()};
 window.addEventListener('load', () => {
-    document.documentElement.className.replace("no-js","js");
-    let loader = document.querySelector('.loader');
-    loader.classList.add('fondu-out');    
+    document.documentElement.className.replace("no-js","js");  
 });
 function toggleMenu() {
     let menuToggle = document.querySelector('.toggle');
@@ -25,47 +23,49 @@ function progressBar() {
   }
 
 window.onload = function(){
-    var switch2toggle = document.getElementsByTagName("input");
-    if(getLocaltime() > "17:00:00"){
-        console.log("Switched on dark mode because of night.");
-        sheets[0].href = "./src/css/dark.css";
-        switch2toggle[0].checked = true;
-        switch2toggle[1].checked = true;
-        new Notify({
-            title: 'Information',
-            text: 'Vous avez été redirigé vers la version noire du site.',
-            autoclose: true,
-            autotimeout: 4000,
-            gap: 10,
-            position: 'right bottom'
-        });
-    };
+    // var switch2toggle = document.getElementsByTagName("input");
+    // if(getLocaltime() > "17:00:00"){
+    //     console.log("Switched on dark mode because of night.");
+    //     sheets[0].href = "./src/css/dark.css";
+    //     switch2toggle[0].checked = true;
+    //     switch2toggle[1].checked = true;
+    //     new Notify({
+    //         title: 'Information',
+    //         text: 'Vous avez été redirigé vers la version noire du site.',
+    //         autoclose: true,
+    //         autotimeout: 4000,
+    //         gap: 10,
+    //         position: 'right bottom',
+    //         customIcon: '<i class="fas fa-info-circle" style="font-size:30px"></i>'
+    //     });
+    // };
 
-    if(getLocaltime() > "7:00:00"){
-        sheets[0].href = "./src/css/style.css"
-        switch2toggle[0].checked = false
-        switch2toggle[1].checked = false;
-    };
+    // if(getLocaltime() > "7:00:00"){
+    //     sheets[0].href = "./src/css/style.css"
+    //     switch2toggle[0].checked = false
+    //     switch2toggle[1].checked = false;
+    // };
 
-    var colorSchemeQueryList = window.matchMedia('(prefers-color-scheme: dark)');
-      var setColorScheme = e => {
-        if (e.matches || sheets[0].href != "./src/css/dark.css") {
-          sheets[0].href = "./src/css/dark.css";
-          console.log('Dark mode by user agent dark');
-          switch2toggle[0].checked = true;
-          switch2toggle[1].checked = true;
-          new Notify({
-            title: 'Information',
-            text: 'Vous avez été redirigé vers la version noire du site.',
-            autoclose: true,
-            autotimeout: 4000,
-            gap: 10,
-            position: 'right bottom'
-        });
-        };
-      };
-      setColorScheme(colorSchemeQueryList);
-      colorSchemeQueryList.addListener(setColorScheme);
+    // var colorSchemeQueryList = window.matchMedia('(prefers-color-scheme: dark)');
+    //   var setColorScheme = e => {
+    //     if (e.matches && getLocaltime() < "17:00:00") {
+    //       sheets[0].href = "./src/css/dark.css";
+    //       console.log('Dark mode by user agent dark');
+    //       switch2toggle[0].checked = true;
+    //       switch2toggle[1].checked = true;
+    //       new Notify({
+    //         title: 'Information',
+    //         text: 'Vous avez été redirigé vers la version noire du site.',
+    //         autoclose: true,
+    //         autotimeout: 4000,
+    //         gap: 10,
+    //         position: 'right bottom',
+    //         customIcon: '<i class="fas fa-info-circle"></i>'
+    //     });
+    //     };
+    //   };
+    //   setColorScheme(colorSchemeQueryList);
+    //   colorSchemeQueryList.addListener(setColorScheme);
 }
 
     var sheets = "";
